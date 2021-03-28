@@ -1,0 +1,246 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+@keyframes search-animation {
+    from {
+        width: 425px;
+        margin-right: 55px;
+        padding-left: 30px;
+    }
+    to {
+        width: 425px;
+        margin-right: 25px;
+    }
+}
+
+@keyframes search-animation-reverse {
+    from {
+        width: 425px;
+        margin-right: 25px;
+
+    }
+    to {
+        width: 425px;
+        margin-right: 55px;
+        padding-left: 30px;
+    }
+}
+
+@keyframes add-contact-slide-effect {
+    from {
+        margin-top: 400px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
+.main-container {
+    width:50vw;
+    margin:auto;
+    padding: 0px 40px;
+    box-shadow: 10px 10px 10px lightgray;
+}
+.header {
+    font-family: Gabriola;
+    font-size: 50px;
+    text-align: center;
+}
+.header img {
+    position: relative;
+    top:5px;
+    right: 10px;
+}
+
+.logo {
+    width:1em;
+    height:1em;
+}
+.contact-content > * {
+    padding: 20px 15px;
+}
+.top > * {
+    display: inline;
+}
+.search-sort {
+    height: 75px;
+}
+.search {
+    width: 477px;
+}
+.search, .sort, .sort > *, .search > *:not(.search-icon){
+    display: inline;
+    vertical-align: top;
+    height: 100%;
+    float: right;
+}
+.add-contact-btn {
+    float: right;
+    padding: 10px 20px;
+}
+.add-contact-btn, .cancel-btn, .create-btn {
+    border-radius: 5px;
+    background-color: #2196F3;
+    color:white;
+    outline: none;
+    border:none;
+}
+.add-contact-btn:hover, .create-btn:hover, .cancel-btn:hover {
+    background-color: #1d84d8;
+}
+.add-contact-btn:active, .create-btn:active, .cancel-btn:active {
+    box-shadow: 3px 3px lightgray;
+}
+.cancel-btn, .create-btn {
+    position: absolute;
+    padding:10px 15px;
+}
+.cancel-btn {
+    bottom: 15px;
+    right: 15px;
+}
+.create-btn {
+    bottom: 15px;
+    right: 100px;
+}
+.add-contact-btn:hover {
+    cursor: pointer;
+}
+.add-contact-btn:active {
+    box-shadow: 2px 2px lightgray;
+}
+.search-box {
+    width: 425px;
+    margin-right: 55px;
+}
+.search-box:focus {
+    animation-name: search-animation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.search-box:not(:focus) {
+    animation-name: search-animation-reverse;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.search-box, .sort select {
+    padding: 5px;
+    border-radius: 5px;
+}
+.search-box, .add-contact input{
+    outline:none;
+    border:1px solid gray;
+}
+.search-icon {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.add-contact-overlay {
+    /* background-color: lightgreen; */
+    z-index: 1;
+    position:fixed;
+    width: 100vw;
+    height: 100vw;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,.4);
+}
+.add-contact {
+    animation-name: add-contact-slide-effect;
+    animation-duration: .5s;
+    height: 450px;
+    width:500px;
+    margin:auto;
+    position: relative;
+    top:150px;
+    padding: 30px;
+    background-color:white;
+    border:1px solid gray;
+}
+.add-contact .close-btn {
+    position: absolute;
+    top:10px;
+    right:20px;
+    font-size:25px;
+}
+.add-contact .close-btn {
+    color: gray;
+}
+.add-contact .close-btn:hover {
+    color:red;
+    cursor:pointer;
+}
+.add-contact button {
+    float:right;
+}
+.add-contact button:hover {
+    cursor:pointer;
+}
+.add-contact-input{
+    display:block;
+    margin-bottom: 20px;
+}
+.add-contact input {
+    width:350px;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+.contacts-card {
+    border:1px solid lightgray;
+    border-radius: 5px;
+}
+.contacts-card:hover {
+    opacity:.8;
+    box-shadow: 4px 4px lightgray;
+}
+.contacts-card ul {
+    list-style-type: none;
+}
+.contact-name {
+    font-size:20px;
+}
+.contact-number {
+    color:gray;
+}
+.contact-delete, .contact-edit {
+    width:35px;
+    height:35px;
+    float: right;
+    border:1px solid gray;
+    border-radius: 5px;
+    position: relative;
+    top: 5px;
+    outline:none;
+}
+.contact-delete {
+    background-color: #f72100f3;
+}
+.contact-edit {
+    background-color: #40d432f3;
+}
+.contact-delete {
+    right: 30px;
+}
+.contact-edit {
+    right: 40px;
+}
+.contact-delete:hover {
+    cursor: pointer;
+    background-color: #c00909;
+}
+.contact-edit:hover {
+    cursor:pointer;
+    background-color: #34b129f3;
+}
+.contact-delete:active, .contact-edit:active {
+    box-shadow: 1px 1px 5px gray;
+}
+.error {
+    font-size:12px;
+    color:red;
+    font-style:italic;
+}

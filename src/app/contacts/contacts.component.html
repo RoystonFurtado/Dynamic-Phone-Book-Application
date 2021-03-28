@@ -1,0 +1,61 @@
+<div class="main-container">
+    <h1 class="header"><img class="logo" src="assets/phonebook_icon.jpg" />Phone Book App</h1>
+    <div class="contact-content">
+        <div class="top">
+            <h2>Contacts</h2>
+            <button class="add-contact-btn" (click)="showContactBox()">+ Add Contact</button>
+        </div>
+        <div class="search-sort">
+            <div class="sort">
+                <select (change)="sort($event.target.value)" >
+                    <option disabled selected style="display: none;">Sort By:</option>
+                    <option value="sortByName">Sort By:Name</option>
+                    <option value="sortByMobileNo">Sort By:Mobile Number</option>
+                </select>
+            </div>
+            <div class="search">
+                <span class="search-icon fa fa-search"></span>
+                <input class="search-box" type="search" name="search" [(ngModel)]="searchText" />
+            </div>
+        </div>
+
+        <div *ngIf="addContactBox===true" class="add-contact-overlay">
+            <!--Here disappear sets the disappear directive and also emits the disappear event as they share the same name(shorthand form)-->
+            <div class="add-contact" (disappear)="hideContactBox()">
+                <span class="close-btn">&times;</span>
+                <h2>{{popupHeader}}</h2>
+                <form (ngSubmit)="addContact()">
+                    <label>First Name</label>
+                    <div class="add-contact-input">
+                    <input type="text" name="fname" [(ngModel)]="newContact.firstName" />
+                    <div *ngIf="firstNameError==false" class="error">Invalid First Name</div>
+                    </div>
+                    <label>Last Name</label>
+                    <div class="add-contact-input">
+                    <input type="text" name="lname" [(ngModel)]="newContact.lastName" />
+                    <div *ngIf="lastNameError==false" class="error">Invalid Last Name</div>
+                    </div>
+                    <label>Mobile No</label>
+                    <div class="add-contact-input">
+                    <input type="text" name="mobNo" [(ngModel)]="newContact.mobileNo" />
+                    <div *ngIf="mobileNoError==false" class="error">Invalid Mobile No</div>
+                    </div>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="create-btn">{{toggleBtn}}</button>
+                </form>
+            </div>
+        </div>
+
+        <div *ngIf="contacts" class="contacts-container">
+            <div *ngFor="let contact of contacts | appFilter:searchText" class="contacts-card">
+                <ul>
+                    <li class="contact-name">{{contact.firstName}} {{contact.lastName}}
+                        <button (click)="deleteContact(contact)" class="contact-delete"><span class="fa fa-trash"></span></button>
+                        <button (click)="editContactBox(contact)" class="contact-edit"><span class="fa fa-edit"></span></button>
+                    </li>
+                    <li class="contact-number"><span class="fa fa-phone"></span>&nbsp;{{contact.mobileNo}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
